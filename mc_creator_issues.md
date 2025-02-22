@@ -22,8 +22,10 @@ The documentation fails to mention that:
 `minecraft:breedable` requires the behavior `minecraft:behavior.breed` in order to breed.
 
 ### [minecraft:damage_sensor](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitycomponents/minecraftcomponent_damage_sensor?view=minecraft-bedrock-stable)
-The field `deals_damage` under the `Triggers item type` table is typed a as a `boolean`, but the value can also be a string as stated in the description. 
+
+The field `deals_damage` under the `Triggers item type` table is typed a as a `boolean`, but the value can also be a string as stated in the description.
 The following show up in different places across the samples repo:
+
 - [`"no_but_side_effects"`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/creaking.json#L135)
 - [`"no"`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/ender_dragon.json#L84)
 - [`"yes"`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/creaking.json#L127)
@@ -70,7 +72,8 @@ Missing `speed_multiplier` is missing a description and a default.
 #[default(1.0)]
 speed_multiplier: f32,
 ```
-This is how we documented it in Spadix. 
+
+This is how we documented it in Spadix.
 These were based on other defaults in the AddOn format.
 
 ### [minecraft:behavior.go_and_give_items_to_noteblock](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitygoals/minecraftbehavior_go_and_give_items_to_noteblock?view=minecraft-bedrock-stable)
@@ -141,7 +144,7 @@ This is self evident:
 This is listed under the components.
 When this should be listed under the item reference root, rather than the components list.
 
-### [filters](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filterlist?view=minecraft-bedrock-stable) (Any filter in the filters section)
+### [Filters](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filterlist?view=minecraft-bedrock-stable) (Any filter in the filters section)
 
 The `At Full..:` and the `At Short (using Defaults)..:` sections have issues:
 
@@ -150,26 +153,36 @@ The `At Full..:` and the `At Short (using Defaults)..:` sections have issues:
   - [in_caravan](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/in_caravan?view=minecraft-bedrock-stable)
   - [inactivity_timer](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/inactivity_timer?view=minecraft-bedrock-stable)
   - This happens with all of the filters that have non string values.
-- In the filter sidebar, `in_caravan` is listed above `in_block`, which is not the correct order alphabetically.
-- Subject is capitalized in the description when it should be lowercase in the following filters:
-  - [is_biome](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_biome?view=minecraft-bedrock-stable)
-  - [is_in_village](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_in_village?view=minecraft-bedrock-stable)
-  - [is_sleeping](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_sleeping?view=minecraft-bedrock-stable)
-  - [is_snow_covered](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_snow_covered?view=minecraft-bedrock-stable)
-- The following filters are not listed in the filter sidebar, but they can be found on the filter list page.
-  - `is_navigating`
-  - `has_property`
-  - `float_property`
-  - `bool_property`
-  - `enum_property`
-  - `int_property`
-  - `home_distance`
-  - `is_baby`
-  - `is_bound_to_creaking_heart`
-  - `is_missing_health`
-  - `is_navigating`
-  - `is_waterlogged`
-  - `owner_distance`
+
+### [Filters Sidebar](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filterlist?view=minecraft-bedrock-stable) (Any filter in the filters section)
+
+In the filter sidebar, the `in_caravan` filter is listed above `in_block`, which is not the correct order alphabetically.
+
+### Subject grammar issue
+
+Subject is capitalized in the description when it should be lowercase in the following filters:
+
+- [is_biome](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_biome?view=minecraft-bedrock-stable)
+- [is_in_village](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_in_village?view=minecraft-bedrock-stable)
+- [is_sleeping](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_sleeping?view=minecraft-bedrock-stable)
+- [is_snow_covered](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_snow_covered?view=minecraft-bedrock-stable)
+
+### Missing Filter Sidebar Entries
+
+The following filters are not listed in the filter sidebar, but they can be found on the [filter list page](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filterlist?view=minecraft-bedrock-stable).
+
+- [`is_navigating`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_navigating?view=minecraft-bedrock-stable)
+- [`has_property`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/has_property?view=minecraft-bedrock-stable)
+- [`float_property`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/float_property?view=minecraft-bedrock-stable)
+- [`bool_property`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/bool_property?view=minecraft-bedrock-stable)
+- [`enum_property`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/enum_property?view=minecraft-bedrock-stable)
+- [`int_property`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/int_property?view=minecraft-bedrock-stable)
+- [`home_distance`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/home_distance?view=minecraft-bedrock-stable)
+- [`is_baby`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_baby?view=minecraft-bedrock-stable)
+- [`is_bound_to_creaking_heart`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_bound_to_creaking_heart?view=minecraft-bedrock-stable)
+- [`is_missing_health`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_missing_health?view=minecraft-bedrock-stable)
+- [`is_waterlogged`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_waterlogged?view=minecraft-bedrock-stable)
+- [`owner_distance`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/owner_distance?view=minecraft-bedrock-stable)
 
 ### [in_caravan](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/in_caravan?view=minecraft-bedrock-stable)
 
@@ -250,10 +263,14 @@ pub enum MoonPhase {
 
 This is how we have it documented in Spadix, with corrected comments based off of this [Nasa Website](https://science.nasa.gov/moon/moon-phases/).
 
+### DamageCause
+
+Missing fatal?... Finish this
+
 ## A Note about Spadix
 
 Though this may be the first time this name has ever been brought up.
-We have all of the AddOn format JSON parsed and documented inside of our codebase.
+We have all of the stable AddOn JSON format parsed and documented inside of the Spadix codebase.
 Our intension is to provide documentation for things that are not documented.
 Spadix is not just for documentation, rather it's something that is able to take
 advantage of the AddOn format progromatically. 
