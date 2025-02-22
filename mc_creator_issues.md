@@ -22,37 +22,20 @@ The documentation fails to mention that:
 `minecraft:breedable` requires the behavior `minecraft:behavior.breed` in order to breed.
 
 ### [minecraft:damage_sensor](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitycomponents/minecraftcomponent_damage_sensor?view=minecraft-bedrock-stable)
-
-The field `deals_damage` under the `Triggers item type` table is typed a as a `boolean`, but the value can also be a string as stated in the description.
-
-```rs
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
-#[serde(deny_unknown_fields, rename_all = "snake_case")]
-pub enum DealsDamage {
-    /// Received damage is applied to the entity.
-    Yes,
-    /// Received damage is not applied to the entity.
-    No,
-    /// Received damage is not applied to the entity, but the side effects of the attack are.
-    /// This means that the attacker's weapon loses durability, enchantment side effects are applied,
-    /// and so on.received damage is not applied to the entity, but the side effects of the attack are.
-    /// This means that the attacker's weapon loses durability, enchantment side effects are applied, and so on.
-    NoButSideEffectsApply,
-    /// If true, the damage dealt to the entity will remove health,
-    /// if false the entity will ignore the damage.
-    #[serde(untagged)]
-    Bool(bool),
-}
-```
-
-This is how we documented this field in Spadix.
+The field `deals_damage` under the `Triggers item type` table is typed a as a `boolean`, but the value can also be a string as stated in the description. 
+The following show up in different places across the samples repo:
+- [`"no_but_side_effects"`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/creaking.json#L135)
+- [`"no"`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/ender_dragon.json#L84)
+- [`"yes"`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/creaking.json#L127)
+- [`true`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/frog.json#L90)
+- [`false`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/allay.json#L84)
 
 ### [minecraft:genetics](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitycomponents/minecraftcomponent_genetics?view=minecraft-bedrock-stable)
 
 The field `use_simplified_breeding` is missing a description.
 
-```rs
-/// When set to 'true', this optional flag prohibits the inheritance of hidden parent alleles as main alleles in children and the inheritance of main alleles as hidden alleles in children. This allows for easier implementation of basic breeding logic.
+```
+When set to 'true', this optional flag prohibits the inheritance of hidden parent alleles as main alleles in children and the inheritance of main alleles as hidden alleles in children. This allows for easier implementation of basic breeding logic.
 ```
 
 This is what we have in Spadix.
@@ -76,21 +59,7 @@ Also, all of the projectile sub-objects are missing after the update on 2/21/25
 
 ### [minecraft:raid_trigger](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitycomponents/minecraftcomponent_raid_trigger?view=minecraft-bedrock-stable)
 
-This component is incorrect compared to the example provided.
-
-```rs
-#[spadix_macros::default]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-#[namespace = "minecraft:raid_trigger"]
-/// Attempts to trigger a raid at the entity's location.
-pub struct RaidTrigger {
-    /// Event to run when a raid is triggered.
-    triggered_event: EventDescriptor,
-}
-```
-
-This is how we documented it inside of Spadix.
+This component is incorrect compared to the [samples](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/player.json#L36).
 
 ### [minecraft:behavior.follow_target_captain]
 
@@ -101,8 +70,8 @@ Missing `speed_multiplier` is missing a description and a default.
 #[default(1.0)]
 speed_multiplier: f32,
 ```
-
-This is how we documented it in Spadix. These were based on other defaults in the AddOn format.
+This is how we documented it in Spadix. 
+These were based on other defaults in the AddOn format.
 
 ### [minecraft:behavior.go_and_give_items_to_noteblock](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitygoals/minecraftbehavior_go_and_give_items_to_noteblock?view=minecraft-bedrock-stable)
 
@@ -159,7 +128,7 @@ The same issue occurs in the description for `base` with `"result."`.
 
 This spawn rule component is missing the field `max`.
 
-### [minecraft:has_ranged_weapon]()
+### [minecraft:has_ranged_weapon](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/has_ranged_weapon?view=minecraft-bedrock-stable)
 
 This is self evident:
 
@@ -193,8 +162,8 @@ The `At Full..:` and the `At Short (using Defaults)..:` sections have issues:
   - `float_property`
   - `bool_property`
   - `enum_property`
-  - `home_distance`
   - `int_property`
+  - `home_distance`
   - `is_baby`
   - `is_bound_to_creaking_heart`
   - `is_missing_health`
@@ -208,23 +177,11 @@ This filter has elements of `minecraft:damage_sensor` strewn about within the do
 
 ### [weather](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/weather?view=minecraft-bedrock-stable) / [weather_at_position](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/weather_at_position?view=minecraft-bedrock-stable)
 
-These seem like they were quickly documented based on the filter `is_family`. The descriptions are incorrect for the `value` field on both of these filters. The valid values for this field are also undocumented.
-
-````rs
-
-```rs
-#[spadix_macros::default]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "lowercase")]
-pub enum Weather {
-    Precipitation,
-    Thunderstorm,
-    Clear,
-}
-````
-
-> Note: Each of these variants are lowercase as stated above, this is how we work with the types within rust.
-> This is what we have documented in Spadix, based on the bedrock-samples.
+- These seem like they were quickly documented based on the filter `is_family`. The descriptions are incorrect for the `value` field on both of these filters. The valid values for this field are also undocumented.
+- The `value` field for these filters are not documented:
+  - [`precipitation`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/bee.json#L370)
+  - [`clear`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/bee.json#L399)
+  - [`thunderstorm`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/fox.json#L299C1-L299C11)
 
 ### [is_altitude](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_altitude?view=minecraft-bedrock-stable)
 
@@ -239,124 +196,9 @@ As the light level is from 0 to 15 in game, this description is quite unclear.
 
 - [This page is broken and not linked anywhere.](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/animationsreference/examples/animationcontroller?view=minecraft-bedrock-stable)
 
-The code below is in reference to this page: [Animation Documentation - Animation Controllers](https://learn.microsoft.com/en-us/minecraft/creator/documents/animations/animationcontroller?view=minecraft-bedrock-stable)
-
-```rs
-/// animation_controller -----------------------------
-
-#[spadix_macros::default]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct AnimationControllersModule {
-    format_version: SemVer,
-
-    animation_controllers: HashMap<AnimationControllerIdentifier, AnimationController>,
-}
-
-
-#[spadix_macros::default]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct AnimationController {
-    initial_state: Option<AnimationStateIdentifier>,
-    /// The group of animations to process.
-    /// May include variables to create more dynamic states.
-    /// May include a transitions value to allow state blending between animations,
-    /// such as querying the current state. Variables may be set by the game or user defined in a custom entity file.
-    #[default]
-    states: HashMap<AnimationStateIdentifier, State>,
-}
-
-#[spadix_macros::default]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-struct State {
-    #[default]
-    animations: Vec<StateAnimation>,
-
-    #[default]
-    transitions: Vec<HashMap<BasicIdentifier, Molang>>,
-
-    blend_transition: Option<f32>,
-    blend_via_shortest_path: Option<bool>,
-
-    #[default]
-    particle_effects: Vec<ParticleEffect>,
-
-    #[default]
-    sound_effects: Vec<SoundEffect>,
-
-    #[default]
-    on_entry: Vec<StateTrigger>,
-
-    #[default]
-    on_exit: Vec<StateTrigger>,
-}
-
-/// animations ------------------
-
-
-#[spadix_macros::default]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct BoneAnimation {
-    /// The set of key frames that might be specified during an animation to create greater granularity.
-    rotation: Option<KeyFrames>,
-    /// The position of a bone in space.
-    position: Option<KeyFrames>,
-
-    relative_to: Option<RelativeTo>,
-
-    /// The scale of the bones.
-    scale: Option<Either<Molang, KeyFrames>>,
-}
-
-#[spadix_macros::default]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct AnimationChannel {
-    /// At what time does the system consider this animation finished?
-    animation_length: Option<f32>,
-
-    #[default(Molang::Expr("query.anim_time + query.delta_time".to_string()))]
-    anim_time_update: Molang,
-
-    #[default(Molang::Flt(1.0))]
-    /// How much this animation is blended with the others. 0.0 = off. 1.0 = fully apply all transforms. Can be an expression
-    // TODO: Percent Inclusive
-    blend_weight: Molang,
-
-    #[default]
-    /// The bone in the geometry section and various settings. Omitting a channel skips that channel for this animation of this bone. Any of these values can be expressions or values.
-    bones: HashMap<BoneIdentifier, BoneAnimation>,
-
-    /// Should the animation loop back to t=0.0 when it finishes?
-    #[serde(rename = "loop")]
-    #[default(ValueOrBool::Boolean(false))]
-    loop_animation: ValueOrBool<AnimationLoop>,
-
-    #[default]
-    sound_effects: Timeline<ValueOrMany<SoundEffect>>,
-
-    #[default]
-    timeline: Timeline<Molang>,
-
-    #[default]
-    particle_effects: Timeline<ValueOrMany<ParticleEffect>>,
-
-    start_delay: Option<Molang>,
-
-    /// Should the animation pose of the bone be set to the bind pose before applying this animation,
-    /// thereby overriding any previous animations to this point?
-    override_previous_animation: Option<bool>,
-}
-```
-
-This is a crunched down version of what we have for the Spadix structures.
-
-The table on this page is a complete mess, as it seems to be a combination of various types used in and around animations/animation_controllers.
-
-Though this is a rough overview of the types, it should be enough to get across that [this](https://learn.microsoft.com/en-us/minecraft/creator/documents/animations/animationcontroller?view=minecraft-bedrock-stable#animation-controller-parameters) table is screwed up.
+- The table on [this](https://learn.microsoft.com/en-us/minecraft/creator/documents/animations/animationcontroller?view=minecraft-bedrock-stable#animation-controller-parameters) page is a complete mess, as it seems to be a combination of various types used in and around animations/animation_controllers
+  - [`creaking.animation.json`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/resource_pack/animations/creaking.animation.json)
+  - [`creaking.animation.controller.json`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/resource_pack/animation_controllers/creaking.animation_controllers.json)
 
 ## Bedrock Samples
 
@@ -365,8 +207,53 @@ ui` folder.
 
 - [`persona_SDL.json`](https://github.com/Mojang/bedrock-samples/blob/preview/resource_pack/ui/persona_SDL.json) should really be `persona_sdl.json` so it lines up with [`_ui_defs.json:117`](https://github.com/Mojang/bedrock-samples/blob/b353e8cbe549f04dd63290b765715d0a4202af51/resource_pack/ui/_ui_defs.json#L117). This is not an issue in the base game definitions, this only shows up in the samples.
 
+## Script API
+
+### [MoonPhase](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/moonphase?view=minecraft-bedrock-stable)
+
+The comments for this section of the docs are not scientifically accurate.
+As the documentation that mentions how the phases follow one another is wrong.
+
+```rs
+/// The fullness of the moon controls various mob behaviors such as the number of slimes
+/// that spawn in Swamp biomes, the chance skeletons and zombies have to spawn with armor,
+/// as well as the chance for spiders to spawn with certain status effects.
+pub enum MoonPhase {
+    /// The darkest moon phase.
+    /// This phase follows the Waning Crescent.
+    NewMoon = 4,
+
+    /// The phase following the New Moon.
+    WaxingCrecent = 5,
+
+    /// The phase following the Waxing Crescent.
+    FirstQuarter = 2,
+
+    /// The phase following the First Quarter.
+    WaxingGibbous = 7,
+
+    /// The brightest moon phase.
+    /// This phase follows the Waxing Gibbous.
+    /// During this phase, cats have a 50% chance of spawning as black cats.
+    FullMoon = 0,
+
+    /// The phase following the Full Moon.
+    WaningGibbous = 1,
+
+    /// The phase following the Waning Gibbous.
+    LastQuarter = 6,
+
+    /// The phase following the Last Quarter.
+    WaningCrecent = 3,
+}
+```
+
+This is how we have it documented in Spadix, with corrected comments based off of this [Nasa Website](https://science.nasa.gov/moon/moon-phases/).
+
 ## A Note about Spadix
 
 Though this may be the first time this name has ever been brought up.
 We have all of the AddOn format JSON parsed and documented inside of our codebase.
 Our intension is to provide documentation for things that are not documented.
+Spadix is not just for documentation, rather it's something that is able to take
+advantage of the AddOn format progromatically. 
