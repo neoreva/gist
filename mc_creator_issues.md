@@ -137,7 +137,7 @@ This is self evident:
 
 - `dandelion not require any parameters to work properly. It can be used as a standalone filter.`
 
-> This one made me laugh if anything
+> This one made us laugh if anything
 
 ### [minecraft:item](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/itemreference/examples/itemcomponents/minecraft_item?view=minecraft-bedrock-stable)
 
