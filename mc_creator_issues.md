@@ -225,8 +225,7 @@ As the light level is from 0 to 15 in game, this description is quite unclear.
 
 ### JSONUI
 
-When parsing JSONUI we found that the samples repository has an miss-named file in the `./resource_pack/
-ui` folder.
+When parsing JSONUI we found that the samples repository has an miss-named file in the `./resource_pack/ui` folder.
 
 - [`persona_SDL.json`](https://github.com/Mojang/bedrock-samples/blob/preview/resource_pack/ui/persona_SDL.json) should really be `persona_sdl.json` so it lines up with [`_ui_defs.json:117`](https://github.com/Mojang/bedrock-samples/blob/b353e8cbe549f04dd63290b765715d0a4202af51/resource_pack/ui/_ui_defs.json#L117). This is not an issue in the base game definitions, this only shows up in the samples.
 
