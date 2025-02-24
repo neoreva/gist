@@ -284,7 +284,4 @@ This is how we have it documented in Spadix, with corrected comments based off o
 
 ## A Note about Spadix
 
-Though this may be the first time this name has ever been brought up.
-We have all of the stable AddOn JSON format parsed and documented inside of the Spadix codebase.
-Our intension is to provide documentation for things that are not documented.
-Spadix is not just for documentation, rather it's something that is able to take advantage of the AddOn format programmatically.
+Though this may be the first time this name has ever been brought up. We have all of the stable AddOn JSON format parsed and documented inside of the Spadix codebase. Our intension is to provide documentation that is cohesive and without duplication. Spadix is not just for documentation, rather it's something that is able to take advantage of the AddOn format programmatically. 
