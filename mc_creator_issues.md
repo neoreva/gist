@@ -167,7 +167,7 @@ Subject is capitalized in the description when it should be lowercase in the fol
 - [is_sleeping](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_sleeping?view=minecraft-bedrock-stable)
 - [is_snow_covered](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_snow_covered?view=minecraft-bedrock-stable)
 
-### Missing Filter Sidebar Entries
+### Missing filter sidebar entries
 
 The following filters are not listed in the filter sidebar, but they can be found on the [filter list page](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filterlist?view=minecraft-bedrock-stable).
 
@@ -183,6 +183,14 @@ The following filters are not listed in the filter sidebar, but they can be foun
 - [`is_missing_health`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_missing_health?view=minecraft-bedrock-stable)
 - [`is_waterlogged`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_waterlogged?view=minecraft-bedrock-stable)
 - [`owner_distance`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/owner_distance?view=minecraft-bedrock-stable)
+
+### Filters missing in sidebar and [the filter list](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filterlist?view=minecraft-bedrock-stable)
+
+- [`in_overworld`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/in_overworld?view=minecraft-bedrock-stable)
+- [`is_sitting`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/is_sitting?view=minecraft-bedrock-stable)
+- [`taking_fire_damage`](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/taking_fire_damage?view=minecraft-bedrock-stable)
+
+These issues were discovered when we went to document the parsed information from bedrock samples.
 
 ### [in_caravan](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filters/in_caravan?view=minecraft-bedrock-stable)
 
@@ -215,9 +223,21 @@ As the light level is from 0 to 15 in game, this description is quite unclear.
 
 ## Bedrock Samples
 
-When parsing JSONUI we found that the samples repository has an miss-named file in the `./resource_pack/ui` folder.
+### JSONUI
+
+When parsing JSONUI we found that the samples repository has an miss-named file in the `./resource_pack/
+ui` folder.
 
 - [`persona_SDL.json`](https://github.com/Mojang/bedrock-samples/blob/preview/resource_pack/ui/persona_SDL.json) should really be `persona_sdl.json` so it lines up with [`_ui_defs.json:117`](https://github.com/Mojang/bedrock-samples/blob/b353e8cbe549f04dd63290b765715d0a4202af51/resource_pack/ui/_ui_defs.json#L117). This is not an issue in the base game definitions, this only shows up in the samples.
+
+There are a good chunk of errors inside of the games JSONUI files, with different elements and parents that are undefined.
+We do not have an exact list at this moment, but at some point a list will be made for this.
+
+### [sounds.json](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/resource_pack/sounds.json#L7160)
+
+Every `interactive_sound` entry includes an extra `"sounds"` field under the `"fall"` event.
+
+This was discovered when we parsed the samples with Spadix during definition testing.
 
 ## Script API
 
@@ -262,10 +282,9 @@ pub enum MoonPhase {
 
 This is how we have it documented in Spadix, with corrected comments based off of this [Nasa Website](https://science.nasa.gov/moon/moon-phases/).
 
-
 ## A Note about Spadix
+
 Though this may be the first time this name has ever been brought up.
 We have all of the stable AddOn JSON format parsed and documented inside of the Spadix codebase.
-Our intension is to provide documentation that is cohesive and without duplication.
-Spadix is not just for documentation, rather it's something that is able to take
-advantage of the AddOn format programmatically. 
+Our intension is to provide documentation for things that are not documented.
+Spadix is not just for documentation, rather it's something that is able to take advantage of the AddOn format programmatically.
