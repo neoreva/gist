@@ -106,10 +106,9 @@ The sentence "Rotation works the same way for rotation." does not make sense gra
 
 This page has missing fields:
 
-- `unlock`
-- `priority`
+- [`unlock`](https://github.com/search?q=repo%3AMojang%2Fbedrock-samples+%22recipe_furnace%22+unlock&type=code)
+- [`priority`](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/recipes/furnace_log.json#L17C6-L17C14)
 
-As these fields can be found [here](https://github.com/search?q=repo%3AMojang%2Fbedrock-samples%20%22recipe_furnace%22%20unlock&type=code)
 
 ### [minecraft:recipe_shaped](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/recipereference/examples/recipedefinitions/minecraftrecipe_shaped?view=minecraft-bedrock-stable)
 
