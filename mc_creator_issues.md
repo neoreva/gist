@@ -63,7 +63,7 @@ Also, all of the projectile sub-objects are missing after the update on 2/21/25
 
 This component is incorrect compared to the [samples](https://github.com/Mojang/bedrock-samples/blob/43ca2795c201b6fff53f38597c4d01f6c4593e1a/behavior_pack/entities/player.json#L36).
 
-### [minecraft:behavior.follow_target_captain]
+### [minecraft:behavior.follow_target_captain](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitygoals/minecraftbehavior_follow_target_captain?view=minecraft-bedrock-stable)
 
 Missing `speed_multiplier` is missing a description and a default.
 
