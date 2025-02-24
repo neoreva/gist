@@ -238,49 +238,49 @@ Every `interactive_sound` entry includes an extra `"sounds"` field under the `"f
 
 This was discovered when we parsed the samples with Spadix during definition testing.
 
-## Script API
-
-### [MoonPhase](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/moonphase?view=minecraft-bedrock-stable)
-
-The comments for this section of the docs are not scientifically accurate.
-As the documentation that mentions how the phases follow one another is wrong.
-
-```rs
-/// The fullness of the moon controls various mob behaviors such as the number of slimes
-/// that spawn in Swamp biomes, the chance skeletons and zombies have to spawn with armor,
-/// as well as the chance for spiders to spawn with certain status effects.
-pub enum MoonPhase {
-    /// The darkest moon phase.
-    /// This phase follows the Waning Crescent.
-    NewMoon = 4,
-
-    /// The phase following the New Moon.
-    WaxingCrecent = 5,
-
-    /// The phase following the Waxing Crescent.
-    FirstQuarter = 2,
-
-    /// The phase following the First Quarter.
-    WaxingGibbous = 7,
-
-    /// The brightest moon phase.
-    /// This phase follows the Waxing Gibbous.
-    /// During this phase, cats have a 50% chance of spawning as black cats.
-    FullMoon = 0,
-
-    /// The phase following the Full Moon.
-    WaningGibbous = 1,
-
-    /// The phase following the Waning Gibbous.
-    LastQuarter = 6,
-
-    /// The phase following the Last Quarter.
-    WaningCrecent = 3,
-}
-```
-
-This is how we have it documented in Spadix, with corrected comments based off of this [Nasa Website](https://science.nasa.gov/moon/moon-phases/).
-
+<!-- ## Script API -->
+<!---->
+<!-- ### [MoonPhase](https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/moonphase?view=minecraft-bedrock-stable) -->
+<!---->
+<!-- The comments for this section of the docs are not scientifically accurate. -->
+<!-- As the documentation that mentions how the phases follow one another is wrong. -->
+<!---->
+<!-- ```rs -->
+<!-- /// The fullness of the moon controls various mob behaviors such as the number of slimes -->
+<!-- /// that spawn in Swamp biomes, the chance skeletons and zombies have to spawn with armor, -->
+<!-- /// as well as the chance for spiders to spawn with certain status effects. -->
+<!-- pub enum MoonPhase { -->
+<!--     /// The darkest moon phase. -->
+<!--     /// This phase follows the Waning Crescent. -->
+<!--     NewMoon = 4, -->
+<!---->
+<!--     /// The phase following the New Moon. -->
+<!--     WaxingCrecent = 5, -->
+<!---->
+<!--     /// The phase following the Waxing Crescent. -->
+<!--     FirstQuarter = 2, -->
+<!---->
+<!--     /// The phase following the First Quarter. -->
+<!--     WaxingGibbous = 7, -->
+<!---->
+<!--     /// The brightest moon phase. -->
+<!--     /// This phase follows the Waxing Gibbous. -->
+<!--     /// During this phase, cats have a 50% chance of spawning as black cats. -->
+<!--     FullMoon = 0, -->
+<!---->
+<!--     /// The phase following the Full Moon. -->
+<!--     WaningGibbous = 1, -->
+<!---->
+<!--     /// The phase following the Waning Gibbous. -->
+<!--     LastQuarter = 6, -->
+<!---->
+<!--     /// The phase following the Last Quarter. -->
+<!--     WaningCrecent = 3, -->
+<!-- } -->
+<!-- ``` -->
+<!---->
+<!-- This is how we have it documented in Spadix, with corrected comments based off of this [Nasa Website](https://science.nasa.gov/moon/moon-phases/). -->
+<!---->
 ## A Note about Spadix
 
 Though this may be the first time this name has ever been brought up. We have all of the stable AddOn JSON format parsed and documented inside of the Spadix codebase. Our intension is to provide documentation that is cohesive and without duplication. Spadix is not just for documentation, rather it's something that is able to take advantage of the AddOn format programmatically. 
