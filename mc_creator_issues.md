@@ -124,6 +124,7 @@ The following are issues on this page:
 ### [minecraft:healable](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitycomponents/minecraftcomponent_healable?view=minecraft-bedrock-stable)
 
 The `effects` field is missing from the `items` sub object. 
+This field exists in the parrot example as listed on this page.
 
 ### [minecraft:recipe_smithing_transform](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/recipereference/examples/recipedefinitions/minecraftrecipe_smithingtransform?view=minecraft-bedrock-stable)
 
