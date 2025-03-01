@@ -121,6 +121,10 @@ The following are issues on this page:
   - These can be found [here](https://github.com/search?q=repo%3AMojang%2Fbedrock-samples+%22recipe_shaped%22+group+unlock&type=code).
 - Defaults are missing from most of these fields as well.
 
+### [minecraft:healable](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/entitycomponents/minecraftcomponent_healable?view=minecraft-bedrock-stable)
+
+The `effects` field is missing from the `items` sub object. 
+
 ### [minecraft:recipe_smithing_transform](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/recipereference/examples/recipedefinitions/minecraftrecipe_smithingtransform?view=minecraft-bedrock-stable)
 
 Incorrect grammar used for the `addition` description. `"minecraft:netherite_ingot."` is not a direct quote, rather it's a string, so the period should be outside of the quotation.
