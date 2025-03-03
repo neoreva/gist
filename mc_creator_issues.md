@@ -148,6 +148,13 @@ This is self evident:
 This is listed under the components.
 When this should be listed under the item reference root, rather than the components list.
 
+### [description](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/itemreference/examples/itemcomponents/description_component?view=minecraft-bedrock-stable)
+
+This is listed under the components.
+When this should be listed under the item reference root, rather than the components list.
+
+
+
 ### [Filters](https://learn.microsoft.com/en-us/minecraft/creator/reference/content/entityreference/examples/filterlist?view=minecraft-bedrock-stable) (Any filter in the filters section)
 
 The `At Full..:` and the `At Short (using Defaults)..:` sections have issues:
